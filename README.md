@@ -49,41 +49,48 @@ User can add a STM32 based board following this [wiki](https://github.com/stm32d
 
 ## Supported boards
 
- - [Nucleo 144 boards](#nucleo-144-boards)
- - [Nucleo 64 boards](#nucleo-64-boards)
- - [Nucleo 32 boards](#nucleo-32-boards)
- - [Discovery boards](#discovery-boards)
- - [Eval boards](#eval-boards)
- - [STM32MP1 series coprocessor boards](#stm32mp1-series-coprocessor-boards)
- - [Generic STM32C0 boards](#generic-stm32c0-boards)
- - [Generic STM32F0 boards](#generic-stm32f0-boards)
- - [Generic STM32F1 boards](#generic-stm32f1-boards)
- - [Generic STM32F2 boards](#generic-stm32f2-boards)
- - [Generic STM32F3 boards](#generic-stm32f3-boards)
- - [Generic STM32F4 boards](#generic-stm32f4-boards)
- - [Generic STM32F7 boards](#generic-stm32f7-boards)
- - [Generic STM32G0 boards](#generic-stm32g0-boards)
- - [Generic STM32G4 boards](#generic-stm32g4-boards)
- - [Generic STM32H5 boards](#generic-stm32h5-boards)
- - [Generic STM32H7 boards](#generic-stm32h7-boards)
- - [Generic STM32L0 boards](#generic-stm32l0-boards)
- - [Generic STM32L1 boards](#generic-stm32l1-boards)
- - [Generic STM32L4 boards](#generic-stm32l4-boards)
- - [Generic STM32L5 boards](#generic-stm32l5-boards)
- - [Generic STM32U5 boards](#generic-stm32u5-boards)
- - [Generic STM32WB boards](#generic-stm32wb-boards)
- - [Generic STM32WBA boards](#generic-stm32wba-boards)
- - [Generic STM32WL boards](#generic-stm32wl-boards)
- - [3D printer boards](#3d-printer-boards)
- - [Blues Wireless boards](#blues-wireless-boards)
- - [Elecgator boards](#elecgator-boards)
- - [Electronic Speed Controller boards](#electronic-speed-controller-boards)
- - [Garatronic/McHobby boards](#garatronicmchobby-boards)
- - [Generic flight controllers](#generic-flight-controllers)
- - [IoT continuum boards](#iot-continuum-boards)
- - [LoRa boards](#lora-boards)
- - [Midatronics boards](#midatronics-boards)
- - [SparkFun boards](#sparkfun-boards)
+- [Arduino core support for STM32 based boards](#arduino-core-support-for-stm32-based-boards)
+  - [Introduction](#introduction)
+  - [Getting Started](#getting-started)
+  - [Supported boards](#supported-boards)
+    - [Nucleo 144 boards](#nucleo-144-boards)
+    - [Nucleo 64 boards](#nucleo-64-boards)
+    - [Nucleo 32 boards](#nucleo-32-boards)
+    - [Discovery boards](#discovery-boards)
+    - [Eval boards](#eval-boards)
+    - [STM32MP1 series coprocessor boards](#stm32mp1-series-coprocessor-boards)
+    - [Generic STM32C0 boards](#generic-stm32c0-boards)
+    - [Generic STM32F0 boards](#generic-stm32f0-boards)
+    - [Generic STM32F1 boards](#generic-stm32f1-boards)
+    - [Generic STM32F2 boards](#generic-stm32f2-boards)
+    - [Generic STM32F3 boards](#generic-stm32f3-boards)
+    - [Generic STM32F4 boards](#generic-stm32f4-boards)
+    - [Generic STM32F7 boards](#generic-stm32f7-boards)
+    - [Generic STM32G0 boards](#generic-stm32g0-boards)
+    - [Generic STM32G4 boards](#generic-stm32g4-boards)
+    - [Generic STM32H5 boards](#generic-stm32h5-boards)
+    - [Generic STM32H7 boards](#generic-stm32h7-boards)
+    - [Generic STM32L0 boards](#generic-stm32l0-boards)
+    - [Generic STM32L1 boards](#generic-stm32l1-boards)
+    - [Generic STM32L4 boards](#generic-stm32l4-boards)
+    - [Generic STM32L5 boards](#generic-stm32l5-boards)
+    - [Generic STM32U5 boards](#generic-stm32u5-boards)
+    - [Generic STM32WB boards](#generic-stm32wb-boards)
+    - [Generic STM32WBA boards](#generic-stm32wba-boards)
+    - [Generic STM32WL boards](#generic-stm32wl-boards)
+    - [3D printer boards](#3d-printer-boards)
+    - [Blues Wireless boards](#blues-wireless-boards)
+    - [Elecgator boards](#elecgator-boards)
+    - [Electronic Speed Controller boards](#electronic-speed-controller-boards)
+    - [Garatronic/McHobby boards](#garatronicmchobby-boards)
+    - [Generic flight controllers](#generic-flight-controllers)
+    - [IoT continuum boards](#iot-continuum-boards)
+    - [LoRa boards](#lora-boards)
+    - [Midatronics boards](#midatronics-boards)
+    - [SparkFun boards](#sparkfun-boards)
+    - [ELV Boards](#elv-boards)
+  - [Next release](#next-release)
+  - [Troubleshooting](#troubleshooting)
 
 **Note about Status**:
   - :green_heart: board support is available since the specified release version.
@@ -97,7 +104,6 @@ User can add a STM32 based board following this [wiki](https://github.com/stm32d
 | :green_heart:  | STM32F412ZG | [Nucleo F412ZG](http://www.st.com/en/evaluation-tools/nucleo-f412zg.html) | *2.6.0* |  |
 | :green_heart:  | STM32F413ZH | [Nucleo F413ZH](http://www.st.com/en/evaluation-tools/nucleo-f413zh.html) | *2.4.0* |  |
 | :green_heart:  | STM32F429ZI | [Nucleo F429ZI](http://www.st.com/en/evaluation-tools/nucleo-f429zi.html) | *0.1.0* |  |
-| :yellow_heart:  | STM32F439ZI | [Nucleo F439ZI](http://www.st.com/en/evaluation-tools/nucleo-f439zi.html) | **2.8.0** |  |
 | :green_heart:  | STM32F446ZE | [Nucleo F446ZE](http://www.st.com/en/evaluation-tools/nucleo-f446ze.html) | *2.7.0* |  |
 | :green_heart:  | STM32F722ZE | [Nucleo F722ZE](http://www.st.com/en/evaluation-tools/nucleo-f722ze.html) | *2.4.0* |  |
 | :green_heart:  | STM32F767ZI | [Nucleo F767ZI](http://www.st.com/en/evaluation-tools/nucleo-f767zi.html) | *1.4.0* |  |
@@ -830,6 +836,12 @@ User can add a STM32 based board following this [wiki](https://github.com/stm32d
 | :----: | :-------: | ---- | :-----: | :---- |
 | :green_heart: | STM32F405RG | [SparkFun MicroMod Processor Board - STM32F405](https://www.sparkfun.com/products/21326) | *2.6.0* |  |
 | :green_heart: | STM32WB5MMG | [SparkFun MicroMod Processor Board - STM32WB5MMG](https://www.sparkfun.com/products/21438) | *2.6.0* |  |
+
+### [ELV Boards](https://de.elv.com/lorawan)
+
+| Status | Device(s) | Name | Release | Notes |
+| :----: | :-------: | ---- | :-----: | :---- |
+| :green_heart:  | STM32WLE5JB | ELV-BM-TRX1 | *2.7.1* |  |
 
 ## Next release
 
